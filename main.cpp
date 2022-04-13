@@ -1,26 +1,15 @@
-#ifndef WINDOWS // Windows performs #define WINDOWS
-#include <windows.h>
-#endif
+#include "./utils/utils.h"
 
-#include <iostream>
+int main() {
 
-#define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
-#define DISABLE_NEWLINE_AUTO_RETURN  0x0008
+  progress_bar loading;
+  loading.initiate(10);
 
-int main()
-{
-  #ifndef WINDOWS
-  HANDLE handleOut = GetStdHandle(STD_OUTPUT_HANDLE);
-  DWORD consoleMode;
-  GetConsoleMode( handleOut , &consoleMode);
-  consoleMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
-  consoleMode |= DISABLE_NEWLINE_AUTO_RETURN;
-  SetConsoleMode( handleOut , consoleMode );
-  #endif
+  for (size_t i = 0; i < loading.outOf; i++) {
+    loading.itterate();
+    Sleep(200);
+  }
 
-   for (int i = 0; i < 10; ++i)
-   {
-      std::cout << "\x1b[38;2;" << 5 * i << ";" << 255 - 10 * i << ";220m"
-             << "ANSI Escape Sequence " << i << std::endl;
-   }
+  return 0;
+
 }
