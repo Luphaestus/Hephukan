@@ -3,6 +3,7 @@
 #include <time.h>
 
 
+
 std::string operator*(std::string const &s, size_t n)
 {
   std::string r;
@@ -62,6 +63,7 @@ class progress_bar {
 };
 
 int main() {
+  std::cout << "\033[1;31mbold red text\033[0m\n";
 
   progress_bar loading;
   loading.outOf = 100;

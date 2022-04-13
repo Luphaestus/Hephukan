@@ -1,0 +1,9 @@
+[submodule "build/cpp-terminal"]
+	path = build/cpp-terminal
+	url = https://github.com/jupyter-xeus/cpp-terminal
+[submodule "cpp-terminal"]
+	path = cpp-terminal
+	url = https://github.com/jupyter-xeus/cpp-terminal
+[submodule "packages/cpp-terminal"]
+	path = packages/cpp-terminal
+	url = https://github.com/jupyter-xeus/cpp-terminal
